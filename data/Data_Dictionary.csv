@@ -1,0 +1,7 @@
+Sheet/Table,Description,Key,Key Description
+ie3_member,One row per source member record,member_id,Member identifier (synthetic)
+mf_member,Simulated mainframe extract; missing-source members intentionally absent,member_id,Member identifier; unique in this extract
+dependent_details,Dependent roster and cancellation dates,dependent_id,Unique dependent record identifier
+custom_tab_rates,Simulated custom-tab/re-rated values for selected retro cancellation scenarios,member_id,Member identifier
+enrollment_requests,Synthetic operational requests,request_id,Unique request identifier
+reconciliation_audit,"Synthetic initial recommended classification, for practice only",audit_id,Unique audit record identifier

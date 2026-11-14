@@ -1,0 +1,15 @@
+Item,Details
+Project,Healthcare Enrollment & Reconciliation Automation — Synthetic Practice Dataset
+Purpose,"Practice SQL/Business Analyst workflows comparing IE3 source records to a Mainframe extract, identifying discrepancies, classifying exceptions, and producing weekly/monthly reporting."
+Data privacy,All records are synthetic and randomly generated for portfolio practice. They are not real members or Carelon production data.
+Important,Mainframe is simulated as a database extract table. SQL updates in this project do NOT connect to or change any real Mainframe/IE3 system.
+Business rule 1,Compare member_id across ie3_member and mf_member; member_id is the member-level key in each table.
+Business rule 2,Do not blindly overwrite all fields. Validate business rules and create a review/exception queue first.
+Business rule 3,"If plan_status is TERMED_NONPAY, classify as SYSTEM_LIMITATION for manual review."
+Business rule 4,"If pay_to_date < requested_effective_date, classify as SYSTEM_LIMITATION."
+Business rule 5,"If APTC is zero and the scenario requires a dependent change/rerating, classify for review; do not assume a rate calculation."
+Business rule 6,"For retro dependent cancellation, compare cancellation_effective_date with premium_effective_date; use custom_tab_* values as simulated returned rates, not as a universal premium formula."
+Business rule 7,"Do not auto-update DOB, name, address, effective dates, premium, or APTC in production without approved source-of-truth rules and authorization."
+SQL dialect,MySQL 8.0+ / MySQL Workbench-compatible examples can be added separately. Date formats in Excel display as YYYY-MM-DD.
+Suggested portfolio title,Healthcare Enrollment Reconciliation & Exception Reporting using SQL
+Suggested workflow,1) Load sheets as tables. 2) Run joins and discrepancy checks. 3) Classify with CASE. 4) Review exception queue. 5) Report weekly/monthly metrics. 6) Demonstrate controlled simulated corrections with audit logging.
